@@ -1,19 +1,22 @@
-import { createRef } from 'react'
-import { createRoot } from 'react-dom/client'
+import React from 'react';
+import { createRef } from 'react';
+import { createRoot } from 'react-dom/client';
 import {
   createBrowserRouter,
   RouterProvider,
   NavLink,
   useLocation,
   useOutlet,
-} from 'react-router-dom'
-import { CSSTransition, SwitchTransition } from 'react-transition-group'
-import { Container, Navbar, Nav } from 'react-bootstrap'
-import Home from './pages/home'
-import About from './pages/about'
-import Contact from './pages/contact'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './styles.css'
+} from 'react-router-dom';
+import { CSSTransition, SwitchTransition } from 'react-transition-group';
+import { Container, Navbar, Nav, InputGroup, FormControl } from 'react-bootstrap';
+import Home from './pages/home';
+import About from './pages/about';
+import Contact from './pages/contact';
+import Socialmedia from './components/Socialmedia.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles.css';
+import { FaSearch } from 'react-icons/fa';
 
 const routes = [
   { path: '/', name: 'Home', element: <Home />, nodeRef: createRef() },
@@ -24,41 +27,72 @@ const routes = [
     element: <Contact />,
     nodeRef: createRef(),
   },
-]
+];
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Example />,
+    element: <Main />,
     children: routes.map((route) => ({
       index: route.path === '/',
       path: route.path === '/' ? undefined : route.path,
       element: route.element,
     })),
   },
-])
+]);
 
-function Example() {
+function Main() {
   const location = useLocation()
   const currentOutlet = useOutlet()
   const { nodeRef } =
     routes.find((route) => route.path === location.pathname) ?? {}
   return (
     <>
-      <Navbar bg="light">
-        <Nav className="mx-auto">
+<Navbar style={{ backgroundColor: 'var(--primary-bg-color)', paddingRight: '10px !important' }} className='d-flex justify-content-around'>
+        <div className="d-flex align-items-center" style={{ color: 'var(--font-color)'}}>
+          <img src='./images/planeta (3).gif' alt='Logo' style={{ width: '10vh', marginRight: '10px' }} />
+          Sandboxpedia
+        </div>
+
+        <Nav>
           {routes.map((route) => (
             <Nav.Link
               key={route.path}
               as={NavLink}
               to={route.path}
-              className={({ isActive }) => (isActive ? 'active' : undefined)}
+              className="navlink"
               end
             >
               {route.name}
             </Nav.Link>
           ))}
         </Nav>
+
+        <InputGroup>
+          <FormControl
+            placeholder="Search"
+            aria-label="Search"
+            className="search-input"
+            // Restante do seu estilo, se necessário
+          />
+
+          <InputGroup.Text
+            id="button-addon2"
+            style={{
+              backgroundColor: 'var(--button-bg-color)',
+              color: 'var(--font-color)',
+              border: `1px solid var(--search-border-color)`,
+            }}
+          >
+            <i className="bi bi-search"></i>
+            <FaSearch
+              style={{ cursor: 'pointer' }} // Adicione o estilo de cursor pointer
+              className="search-icon" // Adicione uma classe CSS personalizada
+            />
+          </InputGroup.Text>
+        </InputGroup>
+
+        <Socialmedia/>
       </Navbar>
       <Container className="container">
         <SwitchTransition>
@@ -69,7 +103,7 @@ function Example() {
             classNames="page"
             unmountOnExit
           >
-            {(state) => (
+            {(_state) => (
               <div ref={nodeRef} className="page">
                 {currentOutlet}
               </div>
@@ -81,6 +115,6 @@ function Example() {
   )
 }
 
-const container = document.getElementById('root')
-const root = createRoot(container)
-root.render(<RouterProvider router={router} />)
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(<RouterProvider router={router} />);
