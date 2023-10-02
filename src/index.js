@@ -17,7 +17,7 @@ import Socialmedia from './components/Socialmedia.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import { FaSearch } from 'react-icons/fa';
-
+import Hud from './components/Hud';
 const routes = [
   { path: '/', name: 'Home', element: <Home />, nodeRef: createRef() },
   { path: '/about', name: 'About', element: <About />, nodeRef: createRef() },
@@ -79,7 +79,7 @@ function Main() {
           <InputGroup.Text
             id="button-addon2"
             style={{
-              backgroundColor: 'var(--button-bg-color)',
+              backgroundColor: '#000000',
               color: 'var(--font-color)',
               border: `1px solid var(--search-border-color)`,
             }}
@@ -111,6 +111,7 @@ function Main() {
           </CSSTransition>
         </SwitchTransition>
       </Container>
+      <Hud/>
     </>
   )
 }

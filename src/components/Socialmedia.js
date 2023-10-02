@@ -29,19 +29,65 @@ function Socialmedia() {
     setProfileAnchorEl(null);
   };
 
+  const iconStyle = {
+    color: 'white',
+    border: '1px solid transparent',
+    borderRadius: '50%', // Bordas redondas
+    transition: 'border-color 0.3s, background-color 0.3s, color 0.3s',
+  };
+
   return (
-    <div className="d-flex justify-content-between">
+    <div style={{ display: 'flex', margin: '10px' }}>
       {/* Ícone de Notificações */}
       <Badge badgeContent={3} color="error" onClick={handleNotificationClick}>
-        <NotificationsIcon />
+        <NotificationsIcon
+          className="icon"
+          style={{
+            ...iconStyle, // Aplicando estilo com bordas redondas
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = 'gray';
+            e.currentTarget.style.color = 'black';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = 'transparent';
+            e.currentTarget.style.color = 'white';
+          }}
+        />
       </Badge>
       {/* Ícone de Mensagens */}
       <Badge badgeContent={2} color="error" onClick={handleMessageClick}>
-        <MessageIcon />
+        <MessageIcon
+          className="icon"
+          style={{
+            ...iconStyle, // Aplicando estilo com bordas redondas
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = 'gray';
+            e.currentTarget.style.color = 'black';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = 'transparent';
+            e.currentTarget.style.color = 'white';
+          }}
+        />
       </Badge>
       {/* Ícone de Perfil */}
       <Badge badgeContent={1} color="error" onClick={handleProfileClick}>
-        <PersonIcon />
+        <PersonIcon
+          className="icon"
+          style={{
+            ...iconStyle, // Aplicando estilo com bordas redondas
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = 'gray';
+            e.currentTarget.style.color = 'black';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = 'transparent';
+            e.currentTarget.style.color = 'white';
+          }}
+        />
       </Badge>
 
       {/* Popover de Notificações */}
