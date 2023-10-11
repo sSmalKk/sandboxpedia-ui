@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "keywords": [],
-  "main": "src/index.js",
   "dependencies": {
+    "concurrently": "^8.2.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.11",
@@ -31,9 +31,15 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "start:frontend": "cd frontend && npm start",
+    "start:backend": "cd backend && node server.js",
+    "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
+    "build:frontend": "cd frontend && react-scripts build",
+    "build:backend": "cd backend && echo 'Add your backend build command here'",
+    "build": "npm run build:frontend && npm run build:backend",
+    "test:frontend": "cd frontend && react-scripts test --env=jsdom",
+    "test:backend": "cd backend && echo 'Add your backend test command here'",
+    "test": "npm run test:frontend && npm run test:backend",
     "eject": "react-scripts eject"
   },
   "browserslist": {
