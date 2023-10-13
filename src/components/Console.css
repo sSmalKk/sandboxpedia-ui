@@ -1,0 +1,96 @@
+.index-container {
+  display: flex;
+  position: relative;
+}
+
+.menu-icon {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.console {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #1e1e1e; /* Cor de fundo do console */
+  color: #ffffff; /* Cor do texto no console */
+}
+
+.console-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #1e1e1e; /* Cor de fundo do console */
+  color: #ffffff; /* Cor do texto no console */
+  padding: 16px;
+  position: relative;
+}
+
+.console-messages {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  max-height: calc(100% - 40px); /* Subtrai a altura do botão de console e do padding da caixa de mensagens */
+}
+
+.console-messages li {
+  margin-bottom: 10px;
+}
+
+.console-container {
+  display: flex;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.console-container.open {
+  transform: translateX(-100%);
+}
+
+.menu-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.resize-handle-right {
+  position: absolute;
+  right: 0; /* ou qualquer valor que funcione para você */
+  cursor: pointer;
+}
+
+.white-text {
+  color: #ffffff; /* Define a cor do texto como branco */
+}
+.console form {
+  margin-bottom: 10px; /* Adiciona espaço entre o formulário e o botão "⋮" */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: #ffffff; /* Cor do texto no console */
+}
+/* Defina a cor do texto do título do input como branco */
+.console .MuiInputLabel-root {
+  color: #ffffff;
+}
+
+/* Defina a cor do texto no campo de input como branco */
+.console .MuiInputBase-input {
+  color: #ffffff;
+}
+
+/* Defina a cor da borda do input como branco */
+.console .MuiOutlinedInput-notchedOutline {
+  border-color: #ffffff;
+}
