@@ -1,0 +1,76 @@
+:root {
+  --primary-bg-color: #121212; /* Cor de fundo primária (escuro) */
+  --secondary-bg-color: #1a1a1a; /* Cor de fundo secundária (cinza escuro) */
+  --search-border-color: #333; /* Cor da borda da barra de pesquisa (cinza escuro) */
+  --search-hover-color: #666; /* Cor da borda da barra de pesquisa ao passar o mouse (cinza claro) */
+  --button-bg-color: #666;;
+  --text-active-color: #0077ff;; /* Cor de fundo do botão (cinza escuro) */
+  --button-hover-color: #666; /* Cor de fundo do botão ao passar o mouse (cinza claro) */
+  --font-color: #fff; /* Cor da fonte (branca) */
+}
+.nav-link {
+padding: '10px' !important;
+
+  color: var(--font-color)!important;;/* Ou qualquer outra cor que você desejar */
+  &:hover {
+    color:var(--button-hover-color)!important;;
+  }&:active{
+    color: var(--text-active-color) !important; /* Use a cor desejada */
+    /* Outros estilos personalizados, se necessário */
+  }
+  
+}
+/* Adicione isso ao seu arquivo de estilo CSS (styles.css) */
+.search-icon {
+  transition: color 0.3s ease; /* Adicione uma transição de cor suave */
+}
+
+.search-icon:hover {
+  color: var(--button-hover-color); /* Altere a cor no hover */
+}
+
+/* Adicione esta classe ao seu arquivo de estilos (styles.css) */
+.search-input {
+  background-color: var(--secondary-bg-color);
+  border: 1px solid var(--search-border-color);
+  background-image: linear-gradient(to right, var(--secondary-bg-color), transparent);
+  color: var(--font-color);
+}
+
+.search-input:focus {
+  background-color: var(--secondary-bg-color); /* Mantém a mesma cor de fundo ao focar */
+  border: 1px solid var(--search-border-color); /* Mantém a mesma cor da borda ao focar */
+  box-shadow: none; /* Remove a sombra ao focar */
+}
+
+.container {
+  position: relative;
+}
+
+.page {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+}
+
+.page-enter {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
